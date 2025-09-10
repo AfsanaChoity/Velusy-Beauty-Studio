@@ -43,14 +43,14 @@ export default function Footer() {
                         <ul className='space-y-2 text-gray-300'>
                             <li><Link href="/">Home</Link></li>
                             
-                            <li><Link href="/contact-us">Contact Us</Link></li>
+                            <li><Link href="/contact">Contact Us</Link></li>
                             <li><Link href="/faq">FAQ</Link></li>
                         </ul>
                     </div>  
                     <div className=' space-y-4 pb-6'>
                         <h2 className='font-semibold text-xl text-white'>Utility Pages</h2>
                         <ul className='space-y-2 text-gray-300'>
-                            <li><Link href="/about-us">About Us</Link></li>
+                            <li><Link href="/about">About Us</Link></li>
                             <li><Link href="/privacy">Privacy Policy </Link></li>
                             <li><Link href="/terms">Terms & Conditions</Link></li>
                             
