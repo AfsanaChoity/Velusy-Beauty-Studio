@@ -82,7 +82,7 @@ const Header = () => {
     return (
         <>
             <nav className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 shadow-2xl relative z-50">
-                <div className="max-w-7xl mx-auto px-4  xl:px-8 ">
+                <div className="max-w-[1480px] mx-auto px-4  xl:px-8 ">
                     <div className="flex items-center justify-between h-16 lg:h-20">
                         {/* Logo Section */}
                         <div className="flex items-center space-x-4">
@@ -119,7 +119,7 @@ const Header = () => {
                         </div>
 
                         {/* Right Section */}
-                        <div className="flex items-center  xl:gap-4 ">
+                        <div className="flex items-center  xl:gap-8 ">
                             {/* Search Bar - Hidden on mobile */}
                             <div className="hidden md:block">
                                 <div className="relative">
