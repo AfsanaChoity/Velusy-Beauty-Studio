@@ -22,9 +22,10 @@ export default function Category() {
   const containerRef = useRef(null)
 
   const getGapSize = () => {
-    if (window.innerWidth < 768) return 12 
-    return 24 
+    if (typeof window === "undefined") return 24; // default for SSR
+    return window.innerWidth < 768 ? 12 : 24;
   }
+
 
   const slideWidth =
     containerWidth && itemsPerView ? Math.floor((containerWidth - getGapSize() * (itemsPerView - 1)) / itemsPerView) : 0
@@ -34,6 +35,8 @@ export default function Category() {
   // update itemsPerView based on screen size + measure container
   useEffect(() => {
     function update() {
+      if (typeof window === "undefined") return;
+      
       const w = window.innerWidth
       let per = 4
       if (w < 768) per = 1
@@ -48,8 +51,10 @@ export default function Category() {
     }
 
     update()
-    window.addEventListener("resize", update)
-    return () => window.removeEventListener("resize", update)
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", update)
+      return () => window.removeEventListener("resize", update)
+    }
   }, [])
 
   // when itemsPerView or container width changes, clamp currentIndex
@@ -60,9 +65,11 @@ export default function Category() {
 
   // measure container on mount (and when ref changes)
   useEffect(() => {
-    if (!containerRef.current) return
+    if (typeof window === "undefined" || !containerRef.current) return
     const ro = new ResizeObserver(() => {
-      setContainerWidth(containerRef.current.clientWidth)
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth)
+      }
     })
     ro.observe(containerRef.current)
     return () => ro.disconnect()

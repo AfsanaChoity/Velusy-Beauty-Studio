@@ -60,7 +60,10 @@ const Header = () => {
         Cookies.set('googtrans', `/en/${langCode}`, { path: '/' });
         setSelectedLanguage(langShort);
         setIsLanguageOpen(false);
-        window.location.reload();
+        // Use the router for client-side navigation
+        if (typeof window !== "undefined" && window.location) {
+            window.location.reload();
+        }
     };
 
     // logout function
@@ -117,7 +120,7 @@ const Header = () => {
                                     href={item.path}
                                     onClick={() => handleNavigationClick(item.name)}
                                     className={`text-gray-200 hover:text-white px-4 py-2 rounded-lg text-sm xl:text-base font-medium transition-all duration-200 hover:bg-slate-700/50 hover:shadow-lg hover:scale-105 cursor-pointer
-                                        ${activeItem  === item.name ? 'underline font-semibold' : ''} `}
+                                        ${activeItem === item.name ? 'underline font-semibold' : ''} `}
 
                                 >
                                     {item.name}
