@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import React from 'react'
 import { MdCopyright } from "react-icons/md";
@@ -52,7 +53,7 @@ export default function Footer() {
                         <ul className='space-y-2 text-gray-300'>
                             <li><Link href="/about">About Us</Link></li>
                             <li><Link href="/privacy">Privacy Policy </Link></li>
-                            <li><Link href="/terms">Terms & Conditions</Link></li>
+                            <li><Link href="/terms" >Terms & Conditions</Link></li>
                             
                         </ul>
                     </div>
@@ -78,3 +79,5 @@ export default function Footer() {
     </div>
   )
 }
+
+// onClick={() => localStorage.setItem("activeItem", "Terms & Conditions")}

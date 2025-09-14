@@ -6,14 +6,16 @@ import Image from "next/image"
 import Link from "next/link"
 import Cookies from 'js-cookie'
 
+
 const Header = () => {
     const [searchValue, setSearchValue] = useState("")
     const [isLanguageOpen, setIsLanguageOpen] = useState(false)
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [selectedLanguage, setSelectedLanguage] = useState("EN");
+
     const [activeItem, setActiveItem] = useState("Home");
 
-    const [selectedLanguage, setSelectedLanguage] = useState("EN");
 
     useEffect(() => {
         const langCookie = Cookies.get('googtrans');
@@ -68,6 +70,11 @@ const Header = () => {
         setIsUserMenuOpen(false);
     };
 
+    const handleNavigationClick = (itemName) => {
+        // localStorage.setItem("activeItem", itemName);
+        setActiveItem(itemName);
+    };
+
     const Badge = ({ count, children, size = "small" }) => (
         <div className="relative inline-block">
             {children}
@@ -93,7 +100,7 @@ const Header = () => {
                                     alt="Logo"
                                     width={88}
                                     height={68}
-                                    className=""
+                                    className="w-[60px] md:w-[88px]"
                                     priority
                                 />
 
@@ -108,9 +115,9 @@ const Header = () => {
                                 <Link
                                     key={index}
                                     href={item.path}
-                                    onClick={() => setActiveItem(item.name)}
+                                    onClick={() => handleNavigationClick(item.name)}
                                     className={`text-gray-200 hover:text-white px-4 py-2 rounded-lg text-sm xl:text-base font-medium transition-all duration-200 hover:bg-slate-700/50 hover:shadow-lg hover:scale-105 cursor-pointer
-                                        ${activeItem === item.name ? 'underline font-semibold' : ''} `}
+                                        ${activeItem  === item.name ? 'underline font-semibold' : ''} `}
 
                                 >
                                     {item.name}

@@ -5,6 +5,7 @@ import Heading from "@/components/ui/Heading";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
+import bg from "@/assets/images/bg.png"
 
 export default function Home() {
 
@@ -48,23 +49,21 @@ export default function Home() {
     <div className="w-full">
 
       {/* Image */}
-      <div className="relative w-full h-screen">
+      <div className="relative ">
         <Image
-          src="/images/bg.png"
+          src={bg}
           alt="Background"
-          layout="fill"
-          objectFit="cover"
           priority
         />
       </div>
 
       {/* Category */}
-      <div className="my-24">
+      <div className="my-10 lg:my-24 ">
         <Category />
       </div>
 
       {/* Near by location */}
-      <div className="mb-24 container mx-auto">
+      <div className="mb-10 lg:mb-24 container mx-auto">
         {/* header */}
         <div className="text-center">
           <Heading text="Near By Location" />
@@ -92,7 +91,7 @@ export default function Home() {
       </div>
 
       {/* Best for you */}
-      <div className="mb-24 container mx-auto">
+      <div className="mb-10 lg:mb-24 container mx-auto">
         {/* header */}
         <div className="text-center">
           <Heading text="Best For You" />
@@ -120,9 +119,9 @@ export default function Home() {
       </div>
 
       {/* FAQ */}
-      <div className="mb-24 container mx-auto">
+      <div className="mb-10 lg:mb-24 container mx-auto">
 
-        <div className="text-center my-10">
+        <div className="text-center">
           <Heading text="FAQ"/>
         </div>
 

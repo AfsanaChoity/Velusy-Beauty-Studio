@@ -88,7 +88,7 @@ export default function FAQs({ role }) {
 const faqs = faqsCustomer;
 
   return (
-     <div className=''>
+     <div className='px-4 lg:px-20'>
       <Box sx={{ width: '100%', mx: 'auto', mt: 4 }}>
       {faqs.map((faq, index) => (
         <Accordion

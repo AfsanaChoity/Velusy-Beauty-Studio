@@ -2,7 +2,7 @@ import FAQs from '@/components/features/homePage/FAQ'
 import Heading from '@/components/ui/Heading'
 import React from 'react'
 
-export default function faqPage() {
+export default function FaqPage() {
   return (
     <div className='my-24 continer mx-auto px-4 xl:px-0 '>
         <div>

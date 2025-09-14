@@ -4,7 +4,7 @@ import Heading from '@/components/ui/Heading'
 import Paragraph from '@/components/ui/Paragraph'
 import ContactForm from '@/components/features/contactUsPage/ContactForm'
 
-export default function contactPage() {
+export default function ContactPage() {
   return (
     <div className='mt-20'>
       {/* Heading */}
