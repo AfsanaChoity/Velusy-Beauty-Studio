@@ -11,17 +11,23 @@ function ServiceCard({
     rating,
     isFavorite = false,
     onFavoriteToggle,
+    onClick,
 }) {
     return (
-        <div className=" overflow-hidden bg-[#EFF8F7] shadow-md rounded-xl border-0">
+        <div
+            onClick={onClick}
+            className="block cursor-pointer w-full text-left overflow-hidden bg-[#EFF8F7] shadow-md rounded-xl border-0 transition-all duration-300 hover:bg-[#D7DFDE] hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#567370] focus:ring-offset-2"
+            aria-label={`View details for ${title}`}
+        >
             {/* Image Section */}
-            <div className="relative aspect-[240/160] overflow-hidden">
+            <div className="relative aspect-[5/3] overflow-hidden">
                 <Image
-                    src={image || "/placeholder.svg"} 
+                    src={image} 
                     alt={title}
                     layout="responsive"
-                    width={240} 
-                    height={160} 
+                    width={400} 
+                    height={300} 
+                    className="pt-4 px-4 transition-transform duration-300 group-hover:scale-105"
 
 
                 />

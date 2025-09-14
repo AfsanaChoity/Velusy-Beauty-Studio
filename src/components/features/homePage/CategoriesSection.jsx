@@ -15,7 +15,7 @@ const categories = [
 ]
 
 // --- component ---
-export default function Category() {
+export default function CategoriesSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [itemsPerView, setItemsPerView] = useState(4)
   const [containerWidth, setContainerWidth] = useState(0)

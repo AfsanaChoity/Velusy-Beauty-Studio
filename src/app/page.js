@@ -1,4 +1,4 @@
-import Category from "@/components/features/homePage/Category";
+import CategoriesSection from "@/components/features/homePage/CategoriesSection";
 import FAQs from "@/components/features/homePage/FAQ";
 import ServiceCard from "@/components/features/homePage/ServiceCard";
 import Heading from "@/components/ui/Heading";
@@ -59,7 +59,7 @@ export default function Home() {
 
       {/* Category */}
       <div className="my-10 lg:my-24 ">
-        <Category />
+        <CategoriesSection />
       </div>
 
       {/* Near by location */}
@@ -123,6 +123,7 @@ export default function Home() {
 
         <div className="text-center">
           <Heading text="FAQ"/>
+          
         </div>
 
         <div>
