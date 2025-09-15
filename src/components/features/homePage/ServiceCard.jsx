@@ -1,6 +1,8 @@
+"use client"
+
 import { Heart, Star } from "lucide-react";
 import { Avatar } from "antd";
-import Image from "next/image"; // Import Next.js Image component
+import Image from "next/image"; 
 
 function ServiceCard({
     image,
@@ -20,29 +22,29 @@ function ServiceCard({
             aria-label={`View details for ${title}`}
         >
             {/* Image Section */}
-            <div className="relative aspect-[5/3] overflow-hidden">
-                <Image
+            <div className="relative aspect-[5/3] overflow-hidden mt-4 mx-4 rounded-md">
+                
+                    <Image
                     src={image} 
                     alt={title}
-                    layout="responsive"
-                    width={400} 
-                    height={300} 
-                    className="pt-4 px-4 transition-transform duration-300 group-hover:scale-105"
-
-
-                />
+                    
+                    className=" transition-transform duration-300 group-hover:scale-105"/>
+                
                 {/* Heart Icon */}
                 <button
-                    onClick={onFavoriteToggle}
-                    className="cursor-pointer absolute top-2 right-2 p-1.5 bg-white/95 backdrop-blur-sm rounded-full shadow-sm hover:bg-white transition-colors"
+                    onClick={(e) => {
+                    e.stopPropagation();
+                      onFavoriteToggle();
+                    }}
+                    className="cursor-pointer absolute top-2 right-2 p-1 bg-white/70 backdrop-blur-sm rounded-md shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:bg-white/90 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all duration-200"
                 >
-                    <Heart className={`w-3.5 h-3.5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700"}`} />
+                    <Heart className={`w-6 h-6 stroke-[2.5px] ${isFavorite ? "fill-gray-800 text-gray-800" : "text-gray-700"}`} />
                 </button>
             </div>
 
             {/* Content Section */}
-            <div className="p-3 flex justify-between">
-                <div className="space-y-2">
+            <div className="p-3 flex justify-between items-center ">
+                <div className="space-y-2 ">
                     {/* Service Title */}
                     <h3 className="font-semibold text-gray-900 text-sm leading-tight">{title}</h3>
 
@@ -51,16 +53,16 @@ function ServiceCard({
                 </div>
 
                 {/* Provider Info */}
-                <div className="flex items-center gap-2 pt-1">
+                <div className="flex items-center gap-2  ">
                     <Avatar className="w-5 h-5" src={providerAvatar || "/placeholder.svg"}>
                         {/* AntD Avatar provides fallback when image is not available */}
                         {providerName[0]}
                     </Avatar>
                     <div>
                         <span className="text-xs text-gray-700 font-medium">{providerName}</span>
-                        <div className="flex items-center gap-0.5 ml-auto">
+                        <div className="flex items-center gap-1 ml-auto">
                             <span className="text-xs font-medium text-gray-900">{rating}</span>
-                            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                            <Star className="w-3 h-3  text-yellow-400" />    
                         </div>
                     </div>
                 </div>

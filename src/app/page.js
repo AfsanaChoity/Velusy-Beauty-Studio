@@ -7,11 +7,14 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import bg from "@/assets/images/bg.png"
 
+import serviceImg from "@/assets/images/hair-care.jpg"
+// import serviceImg from "@/assets/images/hair-color.png"
+
 export default function Home() {
 
   const serviceData = [
     {
-      image: "/images/hair-color.png",
+      image: serviceImg,
       title: "Service 1",
       price: "$20",
       providerName: "Provider 1",
@@ -19,7 +22,7 @@ export default function Home() {
       rating: 4.5,
     },
     {
-      image: "/images/hair-color.png",
+      image: serviceImg,
       title: "Service 2",
       price: "$30",
       providerName: "Provider 2",
@@ -27,7 +30,7 @@ export default function Home() {
       rating: 4.2,
     },
     {
-      image: "/images/hair-color.png",
+      image: serviceImg,
       title: "Service 3",
       price: "$25",
       providerName: "Provider 3",
@@ -35,7 +38,7 @@ export default function Home() {
       rating: 4.8,
     },
     {
-      image: "/images/hair-color.png",
+      image: serviceImg,
       title: "Service 4",
       price: "$40",
       providerName: "Provider 4",

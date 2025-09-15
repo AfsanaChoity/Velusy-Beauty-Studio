@@ -3,15 +3,16 @@
 import { useEffect, useRef, useState } from "react"
 import Heading from "@/components/ui/Heading"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
+import Link from "next/link"
 
 // --- sample data (same as yours) ---
 const categories = [
-  { id: "1", title: "Hair Care", image: "/images/hair-care.jpg" },
-  { id: "2", title: "Facial & Skin Care", image: "/images/facial.jpg" },
-  { id: "3", title: "Body Treatments", image: "/images/body.jpg" },
-  { id: "4", title: "Nail Care", image: "/images/nail.jpg" },
-  { id: "5", title: "Makeup Services", image: "/images/makeup.jpg" },
-  { id: "6", title: "Eye & Brow Services", image: "/images/eye.jpg" },
+  { id: "1", title: "Hair Care", image: "/images/hair-care.jpg", slug: "hair-care" },
+  { id: "2", title: "Facial & Skin Care", image: "/images/facial.jpg", slug: "facial-skin-care" },
+  { id: "3", title: "Body Treatments", image: "/images/body.jpg", slug: "body-treatments" },
+  { id: "4", title: "Nail Care", image: "/images/nail.jpg", slug: "nail-care" },
+  { id: "5", title: "Makeup Services", image: "/images/makeup.jpg", slug: "makeup-services" },
+  { id: "6", title: "Eye & Brow Services", image: "/images/eye.jpg", slug: "eye-brow-services" },
 ]
 
 // --- component ---
@@ -171,8 +172,9 @@ export default function CategoriesSection() {
               }}
             >
               {categories.map((category) => (
-                <div
+                <Link
                   key={category.id}
+                  href={`/${category.slug}`}
                   className="flex-shrink-0 cursor-pointer group"
                   style={{ width: `${slideWidth}px`, flex: `0 0 ${slideWidth}px` }}
                 >
@@ -188,7 +190,7 @@ export default function CategoriesSection() {
                       <h3 className="font-semibold text-[#595959] text-sm md:text-base">{category.title}</h3>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -3,10 +3,11 @@ import Paragraph from '@/components/ui/Paragraph'
 import SubHeading from '@/components/ui/SubHeading'
 import Image from 'next/image'
 import React from 'react'
+import pic from '@/assets/images/about-us.jpg'
 
 export default function AboutUsPage() {
   return (
-    <div className='container mx-auto px-4 xl:px-0 space-y-10 my-20'>
+    <div className='container mx-auto px-4 xl:px-0 space-y-6 lg:space-y-10 my-10 lg:my-20 '>
       {/* Heading */}
       <div>
         <Heading text="Who We Are" />
@@ -35,13 +36,11 @@ export default function AboutUsPage() {
       </div>
 
       {/* Image */}
-      <div className="relative w-full h-[400px]">
+      <div className="relative">
         <Image 
-          src="/images/about-us.jpg" 
+          src={pic} 
           alt="About Us" 
-          layout="fill" 
-          objectFit="cover" 
-          className="rounded-md"
+          className="rounded-md max-h-[600px]"
         />
       </div>
 
