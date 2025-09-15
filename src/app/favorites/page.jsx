@@ -103,12 +103,12 @@ const serviceData = [
     
   ];
 
-export default function FavouriteServicesPage() { 
+export default function FavoriteServicesPage() { 
   return (
      <div className='container mx-auto px-4 xl:px-0 my-10 lg:my-20'>
         
         <div className='mb-6 lg:mb-10'>
-          <Heading text="My Favourite Services"/>
+          <Heading text="My Favorite Services"/>
         </div>
 
         {/* All services */}
