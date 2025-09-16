@@ -15,3 +15,62 @@ body {
 .skiptranslate {
   display: none !important;
 }
+
+.ant-input {
+  @apply h-10 border-gray-200;
+}
+
+
+/* Remove blue glow on hover & force black border */
+.ant-input:hover,
+.ant-input-affix-wrapper:hover {
+  border-color: #000 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Make focused AntD inputs show a black border and remove blue glow */
+.ant-input:focus,
+.ant-input-focused,
+.ant-input:focus-visible,
+.ant-input-affix-wrapper-focused,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper:focus-within {
+  outline: none !important;
+  box-shadow: none !important;     /* removes AntD/Chrome blue glow */
+  border-color: #000 !important;   /* makes border black on focus */
+}
+
+/* For extra coverage (Firefox focus ring) */
+input:-moz-focusring {
+  outline: none;
+}
+
+
+/* Custom Ant Design overrides */
+.ant-upload-select-picture-card {
+  width: 100% !important;
+  height: 120px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.ant-upload-list-picture-card-container {
+  width: 100% !important;
+}
+
+.ant-form-item-label > label {
+  font-weight: 500 !important;
+  color: #374151 !important;
+}
+
+
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: #000 !important;
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: #000 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
+}

@@ -10,7 +10,7 @@ export default function ContactPage() {
       {/* Heading */}
 
       <div className='text-center flex flex-col gap-6'>
-        <Heading text="Contact Us" />
+        <Heading text="Get in Touch" />
         <div className='px-4 md:px-[10%]'>
           <Paragraph text="Have any questions, doubts, or curiosities ? Write to us. We’ll get back to you as soon as possible."></Paragraph>
         </div>

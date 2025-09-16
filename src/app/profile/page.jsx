@@ -30,12 +30,12 @@ export default function ProfilePage() {
                 </div>
 
                 <div className='flex justify-center'>
-                    <button className='flex items-center  gap-2 bg-[#465FBA] text-white cursor-pointer rounded-full px-6 py-2 md:text-xl md:px-10 md:py-3'>Edit Profile <CiEdit className='text-xl md:text-2xl' /></button>
+                    <Link href="/profile/edit" className='flex items-center  gap-2 bg-[#465FBA] text-white cursor-pointer rounded-full px-6 py-2 md:text-xl md:px-10 md:py-3'>Edit Profile <CiEdit className='text-xl md:text-2xl' /></Link>
                 </div>
 
 
                 {/* Links */}
-                <div className='bg-white border border-[#D0D0D0] rounded-[8px] p-2 md:mx-[10%] mt-8 space-y-2 xl:mt-20'>
+                <div className='bg-white border border-[#D0D0D0] rounded-[8px] p-4 md:mx-[10%] mt-8 space-y-4 xl:mt-20'>
                     <Link href="/account-settings" className='flex items-center justify-between rounded-[8px] border border-[#D0D0D0] py-2 px-2 md:px-4'>
                         <p>Account Settings</p>
                         <IoIosArrowForward />
@@ -44,7 +44,7 @@ export default function ProfilePage() {
                         <p>Refer your friend</p>
                         <IoIosArrowForward />
                     </Link>
-                    <Link href="help-support" className='flex items-center justify-between rounded-[8px] border border-[#D0D0D0] py-2 px-2 md:px-4'>
+                    <Link href="/contact" className='flex items-center justify-between rounded-[8px] border border-[#D0D0D0] py-2 px-2 md:px-4'>
                         <p>Help & Support</p>
                         <IoIosArrowForward />
                     </Link>
