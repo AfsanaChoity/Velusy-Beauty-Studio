@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Form, Input, Button, Upload, Select, message } from "antd"
-import { CameraOutlined } from "@ant-design/icons"
+import { CameraOutlined, CloseOutlined } from "@ant-design/icons"
 
 const { TextArea } = Input
 const { Option } = Select
@@ -19,7 +19,11 @@ export default function ProfileForm() {
             // Get this url from response in real world.
             setImageUrl(info.file.response?.url || URL.createObjectURL(info.file.originFileObj))
         }
+
+
     }
+
+
 
     const beforeUpload = (file) => {
         const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png"
@@ -34,24 +38,24 @@ export default function ProfileForm() {
     }
 
     // country code selection
-     const prefixSelector = (
-    <Form.Item name="prefix" noStyle initialValue="+39">
-      <Select style={{ width: 70, height: 40 }}>
-        <Option value="+39">+39</Option>
-        <Option value="+1">+1</Option>
-        <Option value="+44">+44</Option>
-        <Option value="+33">+33</Option>
-        <Option value="+49">+49</Option>
-      </Select>
-    </Form.Item>
-  );
+    const prefixSelector = (
+        <Form.Item name="prefix" noStyle initialValue="+39">
+            <Select style={{ width: 70, height: 40 }}>
+                <Option value="+39">+39</Option>
+                <Option value="+1">+1</Option>
+                <Option value="+44">+44</Option>
+                <Option value="+33">+33</Option>
+                <Option value="+49">+49</Option>
+            </Select>
+        </Form.Item>
+    );
 
     const onFinish = (values) => {
         console.log("Form values:", values)
         message.success("Profile updated successfully!")
     }
 
-    const onCancel = () => {
+    const handleCancel = () => {
         form.resetFields()
         setImageUrl(null)
         message.info("Changes cancelled")
@@ -63,7 +67,8 @@ export default function ProfileForm() {
                 {/* Profile Picture Section */}
                 <div className="mb-8">
                     <h3 className="text-[20px] font-medium text-[#1B1B25] mb-4">Profile Picture</h3>
-                    <div className="border-2 border-dashed border-gray-200 rounded-lg p-8 text-center">
+                    <div className="border-2 border-dashed border-gray-200 rounded-lg p-8 text-center relative">
+
                         <Upload
                             name="avatar"
                             listType="picture-card"
@@ -79,7 +84,14 @@ export default function ProfileForm() {
                             }}
                         >
                             {imageUrl ? (
-                                <img src={imageUrl || "/placeholder.svg"} alt="avatar" className="w-full h-full object-cover rounded" />
+                                <div className="relative w-full h-full">
+                                    <img
+                                        src={imageUrl || "/placeholder.svg"}
+                                        alt="avatar"
+                                        className="w-full h-full object-cover rounded"
+                                    />
+
+                                </div>
                             ) : (
                                 <div className="flex flex-col items-center justify-center text-gray-400">
                                     <CameraOutlined className="text-4xl mb-2" />
@@ -87,6 +99,15 @@ export default function ProfileForm() {
                                 </div>
                             )}
                         </Upload>
+                        {imageUrl &&
+                            <div>
+                                <button
+                                    onClick={() => setImageUrl(null)}
+                                    className="text-red-600 cursor-pointer  z-10  rounded-full "
+                                >
+                                    Remove
+                                </button>
+                            </div>}
                     </div>
                 </div>
 
@@ -138,7 +159,7 @@ export default function ProfileForm() {
 
 
                         <Form.Item name="phoneNumber" label="Phone number">
-                            <Input addonBefore ={prefixSelector} placeholder="Type here..."   />
+                            <Input addonBefore={prefixSelector} placeholder="Type here..." />
                         </Form.Item>
 
                         {/* Language */}
@@ -153,7 +174,7 @@ export default function ProfileForm() {
                         </Form.Item> */}
 
                         {/* Email */}
-                         <Form.Item
+                        <Form.Item
                             name="email"
                             label="Email"
                             rules={[
@@ -169,23 +190,23 @@ export default function ProfileForm() {
                 </div>
 
                 {/* Action Buttons */}
-                
-          <div className="flex gap-4 pt-4 ">
-            <button
-              type="button"
-              onClick={() => form.resetFields()}
-              className="flex-1 border cursor-pointer border-[#FA4649] text-[#FA4649] py-3 rounded-lg transition-colors duration-200 font-medium"
-            >
-              Cancel
-            </button>
 
-            <button
-              type="submit"
-              className="flex-1 cursor-pointer border  border-[#1B1B25] bg-[#1B1B25] text-white py-3 rounded-lg  transition-colors duration-200 font-medium"
-            >
-              Save
-            </button>
-          </div>
+                <div className="flex gap-4 pt-4 ">
+                    <button
+                        type="button"
+                        onClick={handleCancel}
+                        className="flex-1 border cursor-pointer border-[#FA4649] text-[#FA4649] py-3 rounded-lg transition-colors duration-200 font-medium"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        className="flex-1 cursor-pointer border  border-[#1B1B25] bg-[#1B1B25] text-white py-3 rounded-lg  transition-colors duration-200 font-medium"
+                    >
+                        Save
+                    </button>
+                </div>
             </Form>
         </div>
     )
