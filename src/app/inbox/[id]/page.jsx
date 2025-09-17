@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Avatar, Input, Button, Badge, Tooltip } from 'antd';
 import { SendOutlined, PaperClipOutlined, SmileOutlined } from '@ant-design/icons';
+import { FaClipboardList, FaPlus } from 'react-icons/fa';
 
 const BeautySalonChat = () => {
   const [message, setMessage] = useState('');
@@ -56,10 +57,12 @@ const BeautySalonChat = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden h-[600px] flex flex-col">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
+    <div className="w-full bg-white shadow-lg rounded-lg overflow-hidden  flex flex-col">
+     <div className=''>
+       {/* Header */}
+      <div className=" border-b    border-[#DDDDDE]  ">
+        <div className='container mx-auto p-4 flex items-center justify-between'>
+          <div className=" flex items-center space-x-3 ">
           <div className="relative">
             <Avatar 
               size={48} 
@@ -69,17 +72,20 @@ const BeautySalonChat = () => {
           </div>
           <div>
             <h3 className="font-semibold text-gray-900">Plush Beauty Lounge</h3>
-            <p className="text-sm text-blue-600">Online</p>
+            <p className="text-sm text-[#156778]">Online</p>
           </div>
         </div>
-        <Badge status="success" text="Available" className="text-purple-600 font-medium" />
+        <div>
+          <button className='bg-[#1B1B25] text-white text-xs md:text-[16px] py-1 md:py-2 px-2 md:px-4 rounded-md flex items-center gap-1'><FaPlus />Create Proposal</button>
+        </div>
+        </div>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+      <div className="flex-1 overflow-y-auto p-4  space-y-4 bg-gray-50">
         {messages.map((msg) => (
-          <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`flex items-end space-x-2 max-w-xs ${msg.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+          <div key={msg.id} className={`container mx-auto flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`flex items-start gap-1 space-x-2 ${msg.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
               {msg.sender === 'salon' && (
                 <Avatar 
                   size={32} 
@@ -87,22 +93,22 @@ const BeautySalonChat = () => {
                   className="mb-1"
                 />
               )}
-              <div className="flex flex-col">
+              <div className="flex flex-col  max-w-[200px] md:max-w-[280px]">
                 {msg.image && (
                   <div className={`mb-2 ${msg.sender === 'user' ? 'self-end' : 'self-start'}`}>
                     <img 
                       src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=200&h=150&fit=crop"
                       alt="Hair style"
-                      className="rounded-lg shadow-sm max-w-[200px] h-auto"
+                      className="rounded-lg shadow-sm max-w-[200px] md:max-w-[280px] h-auto"
                     />
                   </div>
                 )}
-                <div className={`rounded-lg px-3 py-2 ${
+                <div className={`rounded-tl-2xl rounded-tr-2xl rounded-br-2xl px-3 py-2 ${
                   msg.sender === 'user' 
-                    ? 'bg-blue-500 text-white' 
+                    ? 'bg-[#E1F5FA] text-[#111111]' 
                     : msg.isTyping 
-                      ? 'bg-teal-600 text-white'
-                      : 'bg-teal-600 text-white'
+                      ? 'bg-[#156778] text-[#F98600]'
+                      : 'bg-[#156778] text-white'
                 }`}>
                   {msg.isTyping ? (
                     <div className="flex space-x-1">
@@ -123,21 +129,22 @@ const BeautySalonChat = () => {
         ))}
       </div>
 
-      {/* Message Input */}
-      <div className="border-t border-gray-200 p-4 bg-white">
+      <div className=' bg-gray-50 border border-gray-50'>
+        {/* Message Input */}
+      <div className="border  border-[#DDDDDE] bg-white rounded-[8px] p-2 m-4  ">
         <div className="flex items-center space-x-2">
           <Button 
             type="text" 
             icon={<PaperClipOutlined />} 
             className="text-gray-500 hover:text-gray-700"
           />
-          <div className="flex-1">
+          <div className="flex-1  md:px-2 py-1 ">
             <Input
               placeholder="Type a message..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="border-0 bg-gray-100 rounded-full px-4"
+              className=" !border-0 !rounded-full px-4 !bg-[#F0F3F6]"
               suffix={
                 <Button 
                   type="text" 
@@ -153,10 +160,12 @@ const BeautySalonChat = () => {
             shape="circle"
             icon={<SendOutlined />}
             onClick={handleSendMessage}
-            className="bg-teal-600 hover:bg-teal-700 border-teal-600"
+            className="!bg-[#156778] hover:!bg-teal-700 !border-[#156778]"
           />
         </div>
       </div>
+      </div>
+     </div>
     </div>
   );
 };

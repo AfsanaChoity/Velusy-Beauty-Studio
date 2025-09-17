@@ -133,7 +133,7 @@ const Header = () => {
                             {/* Search Bar - Hidden on mobile */}
                             <div className="hidden md:block">
                                 <div className="relative">
-                                    <div className="flex items-center bg-white/95 backdrop-blur-sm rounded-full px-4 py-2.5 w-50 shadow-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[#B3BAB9] focus-within:border-[#B3BAB9] transition-all duration-200">
+                                    <div className="relative flex items-center bg-white/95 backdrop-blur-sm rounded-full px-4 py-2.5 w-50 shadow-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[#B3BAB9] focus-within:border-[#B3BAB9] transition-all duration-200">
                                         <Search className="text-gray-400 w-4 h-4 mr-3 flex-shrink-0" />
                                         <input
                                             type="text"
@@ -142,9 +142,9 @@ const Header = () => {
                                             onChange={(e) => setSearchValue(e.target.value)}
                                             className="w-36 outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent"
                                         />
-                                        {/* <button className="ml-3 p-1 hover:bg-gray-100 rounded-full transition-colors duration-200">
-                                            <SlidersHorizontal className="text-gray-400 w-4 h-4 hover:text-gray-600" />
-                                        </button> */}
+                                        <button className="absolute right-0 pr-2 cursor-pointer hover:bg-gray-100 rounded-full transition-colors duration-200">
+                                            <Link href="/services"><SlidersHorizontal className="text-[#3D3D3D] w-4 h-4 hover:!text-gray-900 " /></Link>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +192,9 @@ const Header = () => {
                             <div className="hidden sm:block">
                                 <Badge count={5}>
                                     <button className="cursor-pointer text-gray-300 hover:text-white hover:bg-slate-700/50 p-2 rounded-lg transition-all duration-200 hover:scale-110">
+                                        <Link href="/notifications">
                                         <Bell className="w-6 h-6" />
+                                        </Link>
                                     </button>
                                 </Badge>
                             </div>
@@ -303,7 +305,7 @@ const Header = () => {
                                     placeholder="Search category"
                                     className="flex-1 outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent"
                                 />
-                                <SlidersHorizontal className="text-gray-400 w-4 h-4 ml-3" />
+                                <SlidersHorizontal className="text-[#3D3D3D] w-4 h-4 ml-3" />
                             </div>
 
                             {/* Mobile Navigation */}

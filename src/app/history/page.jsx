@@ -1,245 +1,82 @@
-import React from 'react';
+"use client"
 
-const TransactionList = () => {
-  const transactions = [
-    {
-      id: '#695623',
-      amount: '258 CHF',
-      type: 'Special Offers Package',
-      date: '05-12-2025',
-      user: {
-        name: 'Cameron Williamson',
-        address: '4517 Washington Ave'
-      }
-    },
-    {
-      id: '#695623',
-      amount: '258 CHF',
-      type: 'Special Offers Package',
-      date: '05-12-2025',
-      user: {
-        name: 'Cameron Williamson',
-        address: '4517 Washington Ave'
-      }
-    },
-    {
-      id: '#695623',
-      amount: '258 CHF',
-      type: 'Special Offers Package',
-      date: '05-12-2025',
-      user: {
-        name: 'Cameron Williamson',
-        address: '4517 Washington Ave'
-      }
-    },
-    {
-      id: '#695623',
-      amount: '258 CHF',
-      type: 'Special Offers Package',
-      date: '05-12-2025',
-      user: {
-        name: 'Cameron Williamson',
-        address: '4517 Washington Ave'
-      }
-    },
-    {
-      id: '#695623',
-      amount: '258 CHF',
-      type: 'Special Offers Package',
-      date: '05-12-2025',
-      user: {
-        name: 'Cameron Williamson',
-        address: '4517 Washington Ave'
-      }
-    },
-    {
-      id: '#695623',
-      amount: '258 CHF',
-      type: 'Special Offers Package',
-      date: '05-12-2025',
-      user: {
-        name: 'Cameron Williamson',
-        address: '4517 Washington Ave'
-      }
-    }
-  ];
+import Heading from "@/components/ui/Heading"
+import SubHeading from "@/components/ui/SubHeading"
+import React from "react"
 
+const bookings = [
+  {
+    id: "#695623",
+    price: "258 CHF",
+    title: "Special Offers Package",
+    date: "05-12-2025",
+    name: "Cameron Williamson",
+    address: "4517 Washington Ave",
+    avatar: "https://i.pravatar.cc/40?img=12",
+  },
+  // duplicate a few to match the layout in the screenshot
+  ...Array.from({ length: 5 }).map((_, i) => ({
+    id: `#69562${3 + i}`,
+    price: "258 CHF",
+    title: "Special Offers Package",
+    date: "05-12-2025",
+    name: "Cameron Williamson",
+    address: "4517 Washington Ave",
+    avatar: `https://i.pravatar.cc/40?img=${12 + i}`,
+  })),
+]
+
+export default function TailwindBookingsList() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <h1 className="text-2xl font-semibold text-gray-900">Transactions</h1>
-            <div className="flex items-center space-x-4">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Export
-              </button>
-              <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                + Add New
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen  container md:mx-[10%] mx-2 mb-10">
+      <div className="text-center  my-6 md:my-10">
+        <SubHeading text="Transaction History"/>
       </div>
+      <div className=" ">
+        {/* Inner white card that holds the list */}
+        <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <div className="space-y-4">
+            {bookings.map((b, idx) => (
+              <article
+                key={b.id + idx}
+                className="flex items-start justify-between gap-4 bg-white border border-gray-100 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+              >
+                {/* Left block: id, price, title */}
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-semibold text-gray-800 truncate">{b.id}</h4>
+                  <p className="text-xs text-gray-500 mt-2">{b.price}</p>
+                  <p className="text-sm text-gray-600 mt-3">{b.title}</p>
+                </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200">
-          {/* Table Header */}
-          <div className="px-6 py-4 border-b border-gray-200 bg-gray-50 rounded-t-xl">
-            <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-700 uppercase tracking-wider">
-              <div className="col-span-2">Transaction ID</div>
-              <div className="col-span-2">Amount</div>
-              <div className="col-span-3">Description</div>
-              <div className="col-span-2">Date</div>
-              <div className="col-span-3">Customer</div>
-            </div>
-          </div>
+                {/* Right block: date and avatar+name */}
+                <div className="flex flex-col items-end justify-between text-right">
+                  <time className="text-xs text-emerald-500 mb-2">{b.date}</time>
 
-          {/* Transaction Items */}
-          <div className="divide-y divide-gray-200">
-            {transactions.map((transaction, index) => (
-              <div key={index} className="px-6 py-4 hover:bg-gray-50 transition-colors">
-                <div className="grid grid-cols-12 gap-4 items-center">
-                  {/* Transaction ID */}
-                  <div className="col-span-2">
-                    <span className="font-mono text-sm font-medium text-gray-900">
-                      {transaction.id}
-                    </span>
-                  </div>
-
-                  {/* Amount */}
-                  <div className="col-span-2">
-                    <span className="text-lg font-semibold text-gray-900">
-                      {transaction.amount}
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <div className="col-span-3">
-                    <span className="text-sm text-gray-600">
-                      {transaction.type}
-                    </span>
-                  </div>
-
-                  {/* Date */}
-                  <div className="col-span-2">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                      {transaction.date}
-                    </span>
-                  </div>
-
-                  {/* Customer Info */}
-                  <div className="col-span-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="flex-shrink-0">
-                        <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
-                          <span className="text-sm font-medium text-white">
-                            {transaction.user.name.split(' ').map(n => n[0]).join('')}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-sm font-medium text-gray-900 truncate">
-                          {transaction.user.name}
-                        </p>
-                        <p className="text-xs text-gray-500 truncate">
-                          {transaction.user.address}
-                        </p>
-                      </div>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={b.avatar}
+                      alt={b.name}
+                      className="w-9 h-9 rounded-full border border-gray-200"
+                    />
+                    <div className="hidden sm:block">
+                      <p className="text-sm text-gray-700">{b.name}</p>
+                      <p className="text-xs text-gray-400">{b.address}</p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
-          </div>
-
-          {/* Pagination */}
-          <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 rounded-b-xl">
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-gray-500">
-                Showing <span className="font-medium">1</span> to <span className="font-medium">6</span> of{' '}
-                <span className="font-medium">97</span> results
-              </div>
-              <div className="flex items-center space-x-2">
-                <button className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50">
-                  Previous
-                </button>
-                <button className="px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700">
-                  1
-                </button>
-                <button className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                  2
-                </button>
-                <button className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                  3
-                </button>
-                <span className="px-3 py-2 text-sm text-gray-500">...</span>
-                <button className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                  10
-                </button>
-                <button className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                  Next
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                  </svg>
-                </div>
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Total Revenue</p>
-                <p className="text-2xl font-semibold text-gray-900">1,548 CHF</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Total Transactions</p>
-                <p className="text-2xl font-semibold text-gray-900">97</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Active Customers</p>
-                <p className="text-2xl font-semibold text-gray-900">24</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
 
-export default TransactionList;
+      {/* Show More Button */}
+          <div className="flex justify-center mt-6">
+            <button className="cursor-pointer px-6 py-2 bg-emerald-500 text-white text-sm font-medium rounded-lg shadow hover:bg-emerald-600 transition-colors">
+              Show More
+            </button>
+          </div>
+
+    </div>
+  )
+}
