@@ -36,7 +36,7 @@ const Header = () => {
     const navigationItems = [
         { name: "Home", path: "/" },
         { name: "Booking", path: "/booking" },
-        { name: "Reward", path: "/reward" },
+        { name: "Reward ", path: "/reward" },
         { name: "Contact Us", path: "/contact" }
     ]
     const languageOptions = [

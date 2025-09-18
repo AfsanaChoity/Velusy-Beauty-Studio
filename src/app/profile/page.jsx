@@ -40,7 +40,7 @@ export default function ProfilePage() {
                         <p>Account Settings</p>
                         <IoIosArrowForward />
                     </Link>
-                    <Link href="/refer" className='flex items-center justify-between rounded-[8px] border border-[#D0D0D0] py-2 px-2 md:px-4'>
+                    <Link href="/invite" className='flex items-center justify-between rounded-[8px] border border-[#D0D0D0] py-2 px-2 md:px-4'>
                         <p>Refer your friend</p>
                         <IoIosArrowForward />
                     </Link>
