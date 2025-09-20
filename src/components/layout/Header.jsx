@@ -323,6 +323,7 @@ const Header = () => {
 
                             {/* Mobile Actions */}
                             <div className="flex items-center justify-around pt-4 border-t border-slate-700">
+                                {/* inbox */}
                                 <Badge count={3}>
                                     <button className="cursor-pointer text-gray-300 hover:text-white p-3 hover:bg-slate-700/50 rounded-lg transition-all duration-200">
                                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -330,9 +331,13 @@ const Header = () => {
                                         </svg>
                                     </button>
                                 </Badge>
+
+                                {/* Notification */}
                                 <Badge count={5}>
                                     <button className="cursor-pointer text-gray-300 hover:text-white p-3 hover:bg-slate-700/50 rounded-lg transition-all duration-200">
+                                       <Link href="/notifications">
                                         <Bell className="w-6 h-6" />
+                                        </Link>
                                     </button>
                                 </Badge>
 

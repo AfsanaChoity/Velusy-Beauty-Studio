@@ -2,6 +2,7 @@ import React from 'react'
 import Heading from '@/components/ui/Heading';
 import serviceImg from "@/assets/images/hair-color.png"
 import ServiceCard from '@/components/features/homePage/ServiceCard';
+import FilterForm from '@/components/features/allServicePage/FilterForm';
 
 const serviceData = [
     {
@@ -105,14 +106,16 @@ const serviceData = [
 
 export default function AllServicesPage() { 
   return (
-     <div className='container mx-auto px-4 xl:px-0 my-10 lg:my-20'>
+     <div className='container mx-auto px-4 xl:px-0 my-10 lg:my-20 '>
         
         <div className='mb-6 lg:mb-10'>
-          <Heading text="All Services"/>
+          {/* <Heading text="All Services"/> */}
+
+          <FilterForm />
         </div>
 
         {/* All services */}
-        <div>
+        <div className=''>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 ">
           {serviceData.map((service, index) => (
